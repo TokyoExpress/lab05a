@@ -8,13 +8,12 @@
 .data
 	q1: .asciiz "The contents of the array are:\n"
 	q2: .asciiz "\n"
-	arr:
+	arr: 
 		.word 1, 2, 3, 4, 5, 6, 7, 8, 9, 10
 
 .text
 printA:
-
-	bge $t0, $al, end
+	bge $t0, $a1, end
 	move $t1, $a0
 
 	li $v0, 1
@@ -38,7 +37,7 @@ main:
 	la $a0, q1
 	syscall
 
-	li $al, 10
+	li $a1, 10
 	li $t0, 0
 	la $a0, arr
 	jal printA
